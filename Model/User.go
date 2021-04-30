@@ -1,19 +1,16 @@
 package PushModel
 
+import "time"
+
 type Push struct {
-	ProgressId   interface{}
-	ProgressName interface{}
-	PushTitle    interface{}
-	PushContents interface{}
+	ID  interface{}	`gorm:"type:varchar(100);primary_key"`
+	ProgressName interface{}	`gorm:"type:varchar(40);"`
+	PushTitle    interface{}	`gorm:"type:TEXT"`
+	PushContents interface{}	`gorm:"type:TEXT"`
+	createat time.Time
 }
 
-//Newpush is create push struct
-func (p Push) Newpush(
-	title string,
-	data string,
-	pname string,
-	pid string,
-) *Push {
-	p = Push{pid, pname, title, data}
-	return &p
+func (Push) TableName() string {
+	return "PushResqeust"
 }
+
