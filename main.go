@@ -3,17 +3,16 @@ package main
 import (
 	"fmt"
 	"github.com/labstack/echo"
-	"test/Handler"
+	"test/DB"
+	"test/route"
 )
 
 func main() {
-	fmt.Println("Hello Echo!")
+	fmt.Println("Initial DB....")
+	DB.InitDB()
+
+	//router 등록
 	e := echo.New()
-
-	e.GET("/", Handler.HomeHandler)
-	e.GET("/user", Handler.UserListHandler)
-	e.POST("/user", Handler.AddUser)
-
+	route.Router(e)
 	e.Logger.Fatal(e.Start(":9000"))
-
 }
