@@ -1,0 +1,4 @@
+{
+  "DBurl": "root:1122@/test?charset=utf8mb4&parseTime=true",
+  "DBtype": "mysql"
+}
