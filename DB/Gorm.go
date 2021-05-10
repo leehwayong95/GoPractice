@@ -1,6 +1,7 @@
 package DB
 
 import (
+	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
 	"log"
@@ -15,6 +16,7 @@ type GormController struct {
 }
 
 func InitDB() {
+	fmt.Println("Initial DB....")
 	var (
 		driver, url string
 	)
@@ -22,7 +24,9 @@ func InitDB() {
 	//Configuration
 	configuration := config.GetConfiguration()
 	driver = configuration.DBtype
-	url = configuration.DBUrl
+	url = configuration.DB_USER + ":" + configuration.DB_PW + "@" +
+		/*configuration.DB_HOST + ":" + configuration.DB_Port +*/ "/" +configuration.DB_TARGET + "?" +
+		configuration.DB_OPTION
 
 	var dberr error
 	db, dberr = gorm.Open(driver, url)

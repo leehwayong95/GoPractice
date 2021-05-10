@@ -22,9 +22,7 @@ func UserListHandler(c echo.Context) error {
 	}
 	response.Status = true
 	response.Data = users
-	for _, name := range users {
-		println(name.PushContents)
-	}
+
 	return c.JSON(http.StatusOK, response)
 }
 
