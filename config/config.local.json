@@ -1,4 +1,10 @@
 {
   "DBurl": "root:1122@/test?charset=utf8mb4&parseTime=true",
+  "DB_USER": "root",
+  "DB_PW": "1122",
+  "DB_HOST": "",
+  "DB_Port": "",
+  "DB_TARGET": "test",
+  "DB_OPTION": "charset=utf8mb4&parseTime=true",
   "DBtype": "mysql"
 }
